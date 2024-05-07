@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML to PDF</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <style>  
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s;
+          }
+          
+          .dark-theme body {
+            background-color: #333;
+            color: #fff;
+          }
+          
+          #htmlContent {
+            text-align: left;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #1e1e1e;
+            max-width: 800px;
+            max-height: 800px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+            transition: background-color 0.3s;
+          }
+          
+          .dark-theme #htmlContent {
+            background-color: #444;
+            color: #fff;
+          }
+          .dark-theme #htmlContent h2 {
+            color: #fff;
+          }
+          
+          h2 {
+            color: #687177;
+            margin-bottom: 20px;
+            text-align: center;
+          }
+          
+          label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+          }
+          
+          input[type="number"],
+          input[type="color"] {
+            width: 60px;
+          }
+          
+          textarea {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #1a1919;
+          }
+          
+          button {
+            border: 1px solid black;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #2b6c9b;
+            color: #fff;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            text-align: center;
+          }
+          
+          button:hover {
+            background-color: #9cadb9;
+          }
+          
+          .highlight {
+            background-color: yellow;
+          }
+        </style>   
+</head>
+<body>
+    <div id="htmlContent">
+      <h2>Notes Creation</h2>
+      <label for="headingFontSize">Heading Font Size:</label>
+      <input type="number" id="headingFontSize" value="16">
+      <label for="headingFontColor">Heading Font Color:</label>
+      <input type="color" id="headingFontColor" value="#000">
+      <label for="headingTextarea" style="text-align:center">Heading:</label>
+      <textarea id="headingTextarea" rows="4" placeholder="Write your heading here"></textarea>
+      <label for="notesFontSize">Notes Font Size:</label>
+      <input type="number" id="notesFontSize" value="16">
+      <label for="notesFontColor">Notes Font Color:</label>
+      <input type="color" id="notesFontColor" value="#000">
+      <label for="notesTextarea" style="text-align:center">Notes:</label>
+      <textarea id="notesTextarea" rows="4" placeholder="Write your notes here"></textarea>
+      <p style="text-align:center">
+        <button id="generatePDF">Generate PDF</button>
+      </p>
+      <p style="text-align:center">
+        <label for="themeToggle" style="text-align: center;">Toggle Theme:</label>
+        <input type="checkbox" id="themeToggle">
+      </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
